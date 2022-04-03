@@ -1,0 +1,5 @@
+export const SET_DISPLAY: "SET_DISPLAY" = "SET_DISPLAY";
+export const REMOVE_DISPLAY: "REMOVE_DISPLAY" = "REMOVE_DISPLAY";
+export const ADD_PAD: "ADD_PAD" = "ADD_PAD";
+export const REMOVE_PAD: "REMOVE_PAD" = "REMOVE_PAD";
+export const SWAP_PADS: "SWAP_PADS" = "SWAP_PADS";

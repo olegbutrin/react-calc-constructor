@@ -1,0 +1,94 @@
+.dropEmpty,
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 243px;
+  height: 480px;
+  border: 2px dashed #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 6px;
+}
+
+.dropEmpty {
+  background: #F0F9FF;
+}
+
+.placeholderHeader {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #5d5fef;
+  padding: 12px 0px 4px 0px;
+  max-width: 60%;
+}
+
+.placeholderText {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  color: #6b7280;
+  max-width: 60%;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 243px;
+  height: 480px;
+  border: 2px dashed transparent;
+  box-sizing: border-box;
+  border-radius: 6px;
+}
+
+.noIndent {
+  margin: 0;
+  padding: 0;
+}
+
+.displayContainer {
+  min-height: var(--widget-height);
+  width: 100%;
+  margin: 0;
+  padding: 0px 0px 12px 0px;
+}
+
+.dropzone {
+  width: 100%;
+  padding-bottom: 12px;
+}
+
+.dropzone * {
+  padding-bottom: 0;
+}
+
+.dropContainer,
+.dropPlaceholder {
+  height: 52px;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.dropPlaceholder {
+  background: #F0F9FF;
+}
+
+.pads {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+}
+

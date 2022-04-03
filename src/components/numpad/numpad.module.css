@@ -1,0 +1,12 @@
+.pad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  column-gap: 8px;
+  row-gap: 8px;
+  min-width: var(--widget-width);
+  max-width: var(--widget-width);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}

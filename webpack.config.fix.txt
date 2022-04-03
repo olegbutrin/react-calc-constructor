@@ -1,0 +1,6 @@
+module.exports = {
+  alias: {
+    'react/jsx-dev-runtime.js': projectRoot('node_modules', 'react', 'jsx-dev-runtime.js'),
+    'react/jsx-runtime.js': projectRoot('node_modules', 'react', 'jsx-runtime.js')
+  }
+}

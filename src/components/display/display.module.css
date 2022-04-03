@@ -1,0 +1,27 @@
+.display {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 4px 8px;
+  min-width: var(--widget-width);
+  max-width: var(--widget-width);
+  height: 52px;
+  background: #f3f4f6;
+  border-radius: 6px;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 44px;
+  display: flex;
+  align-items: flex-end;
+  text-align: right;
+  color: #111827;
+  user-select: none;
+}
