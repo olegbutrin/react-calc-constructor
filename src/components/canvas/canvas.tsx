@@ -13,8 +13,9 @@ import { useDispatch, useSelector } from "../../services/hooks";
 import {
   TDraggableType,
   TDraggableNames,
-  TDnDItemType,
+  TDropResult,
 } from "../../utils/types";
+import { addDisplay, addPad } from "../../services/actions/constructor.actions";
 
 const DragConatainer = (props: {
   dragType: TDraggableType;
@@ -22,10 +23,36 @@ const DragConatainer = (props: {
   children: ReactElement;
   locked: boolean;
 }) => {
-  const [, dragRef] = useDrag({
-    type: props.dragType,
-    item: { name: props.dragName, type: props.dragType } as TDnDItemType,
-  });
+  //
+  const dispatch = useDispatch();
+  const { dragType, dragName } = props;
+
+  const [, dragRef] = useDrag(
+    () => ({
+      type: dragType,
+      item: { name: dragName, type: dragType },
+      options: {
+        dropEffect: "copy",
+      },
+      end(item, monitor) {
+        const dropResult = monitor.getDropResult() as TDropResult;
+        if (dropResult) {
+          if (dropResult.name === item.type) {
+            switch (item.type) {
+              case "display":
+                dispatch(addDisplay());
+                break;
+              case "pad":
+                dispatch(addPad(item.name));
+                break;
+            }
+          }
+        }
+      },
+    }),
+    [dragType, dragName]
+  );
+  //
 
   return props.locked ? (
     <div className={styles.locked} draggable={false}>
@@ -39,7 +66,6 @@ const DragConatainer = (props: {
 };
 
 const Canvas = () => {
-  const dispatch = useDispatch();
   const app = useSelector((store) => store.app);
   const constr = useSelector((store) => store.constr);
 
@@ -65,21 +91,21 @@ const Canvas = () => {
                 constr.pads.includes("actionpad") || app.mode === "runtime"
               }
             >
-              <ActionPad mode="constructor" />
+              <ActionPad />
             </DragConatainer>
             <DragConatainer
               dragType="pad"
               dragName="numpad"
               locked={constr.pads.includes("numpad") || app.mode === "runtime"}
             >
-              <NumPad mode="constructor" />
+              <NumPad />
             </DragConatainer>
             <DragConatainer
               dragType="pad"
               dragName="sumpad"
               locked={constr.pads.includes("sumpad") || app.mode === "runtime"}
             >
-              <SumPad mode="constructor" />
+              <SumPad />
             </DragConatainer>
           </div>
           <Constructor />

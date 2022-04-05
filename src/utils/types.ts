@@ -9,3 +9,9 @@ export type TDnDItemType = {
   name: TDraggableNames;
   type: TDraggableType;
 }
+
+export type TDropResult = {
+  allowedDropEffect: string;
+  dropEffect: string;
+  name: string;
+}

@@ -1,11 +1,13 @@
+import { useSelector } from "../../services/hooks";
 import Button from "../button/button";
 import styles from "./numpad.module.css";
-import { TWidgetActivityMode } from "../../utils/types";
-import React, { MouseEventHandler } from "react";
+import { MouseEventHandler } from "react";
 
 type TNumButtonsType = Map<string, MouseEventHandler<HTMLDivElement>>;
 
-const NumPad = (props: { mode: TWidgetActivityMode }) => {
+const NumPad = () => {
+  const app = useSelector((store) => store.app);
+
   const btnOnClick = (value: string) => {
     console.log(value);
   };
@@ -86,7 +88,7 @@ const NumPad = (props: { mode: TWidgetActivityMode }) => {
         <Button
           key={label}
           label={label}
-          mode={props.mode}
+          mode={app.mode}
           onClick={callback}
           style={{ gridColumn: "span 2" }}
         />
@@ -96,7 +98,7 @@ const NumPad = (props: { mode: TWidgetActivityMode }) => {
         <Button
           key={label}
           label={label}
-          mode={props.mode}
+          mode={app.mode}
           onClick={callback}
         />
       );

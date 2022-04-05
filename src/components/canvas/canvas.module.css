@@ -21,7 +21,7 @@
 .main {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 }
 
@@ -47,14 +47,15 @@
 
 .container {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: move;
 }
 
 .container:active {
-  cursor: grabbing;
+  cursor: move;
 }
 
 .container * {
-  cursor: grab;
+  cursor: move;
 }
 
 .locked {

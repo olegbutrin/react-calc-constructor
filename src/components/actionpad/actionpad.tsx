@@ -1,18 +1,21 @@
+import { useSelector } from "../../services/hooks";
 import Button from "../button/button";
 import styles from "./actionpad.module.css";
-import { TWidgetActivityMode } from "../../utils/types";
 
-const ActionPad = (props: { mode: TWidgetActivityMode }) => {
+const ActionPad = () => {
+  const app = useSelector((store) => store.app);
+
   const summEvent = () => {};
   const diffEvent = () => {};
   const multiEvent = () => {};
   const divEvent = () => {};
+
   return (
     <div className={styles.pad}>
-      <Button label="/" mode={props.mode} key={"div"} onClick={divEvent} />
-      <Button label="*" mode={props.mode} key={"multi"} onClick={multiEvent} />
-      <Button label="-" mode={props.mode} key={"diff"} onClick={diffEvent} />
-      <Button label="+" mode={props.mode} key={"summ"} onClick={summEvent} />
+      <Button label="/" mode={app.mode} key={"div"} onClick={divEvent} />
+      <Button label="*" mode={app.mode} key={"multi"} onClick={multiEvent} />
+      <Button label="-" mode={app.mode} key={"diff"} onClick={diffEvent} />
+      <Button label="+" mode={app.mode} key={"summ"} onClick={summEvent} />
     </div>
   );
 };

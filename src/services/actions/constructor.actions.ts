@@ -17,6 +17,16 @@ export interface IAddPad {
   readonly payload: TDraggablePads;
 }
 
+export interface IPlacePadBefore {
+  readonly type: typeof constants.PLACE_PAD_BEFORE;
+  readonly payload: { source: TDraggablePads; dest: TDraggablePads };
+}
+
+export interface IPlacePadAfter {
+  readonly type: typeof constants.PLACE_PAD_AFTER;
+  readonly payload: { source: TDraggablePads; dest: TDraggablePads };
+}
+
 export interface IRemovePad {
   readonly type: typeof constants.REMOVE_PAD;
   readonly payload: TDraggablePads;
@@ -31,6 +41,8 @@ export type TConstructorType =
   | ISetDisplay
   | IRemoveDisplay
   | IAddPad
+  | IPlacePadBefore
+  | IPlacePadAfter
   | IRemovePad
   | ISwapPads;
 
@@ -54,6 +66,24 @@ export function addPad(pad: TDraggableNames) {
   };
 }
 
+export function placeBefore(source: TDraggablePads, dest: TDraggablePads) {
+  return function (dispatch: Dispatch) {
+    dispatch({
+      type: constants.PLACE_PAD_BEFORE,
+      payload: { source: source, dest: dest },
+    });
+  };
+}
+
+export function placeAfter(source: TDraggablePads, dest: TDraggablePads) {
+  return function (dispatch: Dispatch) {
+    dispatch({
+      type: constants.PLACE_PAD_AFTER,
+      payload: { source: source, dest: dest },
+    });
+  };
+}
+
 export function removePad(pad: TDraggablePads) {
   return function (dispatch: Dispatch) {
     dispatch({ type: constants.REMOVE_PAD, payload: pad });
@@ -62,6 +92,9 @@ export function removePad(pad: TDraggablePads) {
 
 export function swapPads(source: TDraggablePads, dest: TDraggablePads) {
   return function (dispatch: Dispatch) {
-    dispatch({ type: constants.SWAP_PADS, payload: {source: source, dest: dest} });
+    dispatch({
+      type: constants.SWAP_PADS,
+      payload: { source: source, dest: dest },
+    });
   };
 }
