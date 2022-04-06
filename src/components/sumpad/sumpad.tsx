@@ -7,7 +7,6 @@ import styles from "./sumpad.module.css";
 const SumPad = (props: { mode?: TWidgetActivityMode }) => {
   const dispatch = useDispatch();
   const app = useSelector((store) => store.app);
-  const calc = useSelector((store) => store.calc);
 
   const resultEvent = () => {
     dispatch(addSum("="));

@@ -1,4 +1,6 @@
+.displayActive,
 .display {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -13,9 +15,26 @@
   user-select: none;
 }
 
+.displayActive::after { 
+  content: attr(data-title);
+  display:flex;
+  flex-direction:row;
+  align-items: flex-end;
+  justify-content: center;
+  position: absolute;
+  float: inline-end;
+  top: -22px;
+  right: 6px;
+  height: 20px;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: right;
+  text-overflow: clip;
+  color: lightgray;
+ }
+
 .textProxy,
 .text {
-  position: relative;
   font-family: "Inter";
   font-style: normal;
   font-weight: 800;
@@ -33,7 +52,7 @@
 .textProxy::before {
   content: "~";
   position: absolute;
-  left: 0px;
-  top: -4px;
+  left: 4px;
+  top: 0px;
   font-size: 28px;
 }

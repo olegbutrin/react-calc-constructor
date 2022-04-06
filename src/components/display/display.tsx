@@ -10,6 +10,7 @@ const Display = (props: { mode: TWidgetActivityMode }) => {
   const dispatch = useDispatch();
   const app = useSelector((store) => store.app);
   const calc = useSelector((store) => store.calc);
+
   const asNum =
     calc.digits.length > 1
       ? calc.digits.includes(".")
@@ -24,12 +25,14 @@ const Display = (props: { mode: TWidgetActivityMode }) => {
       : (
           asNum.replace(".", ",") +
           (calc.digits[calc.digits.length - 1] === "." ? "," : "")
-        ).replace(/\,\,$/, ",").replace(/^\,/, "0,");
+        )
+          .replace(/,,$/, ",")
+          .replace(/^,/, "0,");
 
   const value =
     calc.digits.length === 0
       ? "0"
-      : calc.digits.join("").replace(".", ",").replace(/^\,/, "0,");
+      : calc.digits.join("").replace(".", ",").replace(/^,/, "0,");
 
   const clearCalculator = (event: SyntheticEvent<HTMLElement>) => {
     event.stopPropagation();
@@ -39,12 +42,17 @@ const Display = (props: { mode: TWidgetActivityMode }) => {
 
   return (
     <div
-      className={styles.display}
+      className={
+        app.mode === "runtime" && props.mode === "runtime"
+          ? styles.displayActive
+          : styles.display
+      }
       onDoubleClick={
         app.mode === "runtime" && props.mode === "runtime"
           ? clearCalculator
           : undefined
       }
+      data-title={props.mode === "constructor" ? "0" : [calc.memory, calc.action, value].join(" ") }
     >
       <div
         className={
@@ -52,9 +60,8 @@ const Display = (props: { mode: TWidgetActivityMode }) => {
             ? styles.textProxy
             : styles.text
         }
-        title={props.mode === "constructor" ? "0" : value}
       >
-        {props.mode === "constructor" ? "0" : content}
+        {props.mode === "constructor" ? "0" : calc.error || content}
       </div>
     </div>
   );
