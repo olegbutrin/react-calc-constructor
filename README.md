@@ -4,6 +4,8 @@
 
 ![Иллюстрация к проекту](https://github.com/olegbutrin/react-calc-constructor/blob/stage-1/images/RC.png)
 
+[ПримерноТак Калькулятор](https://olegbutrin.github.io/react-calc-constructor/) на GithubPages.
+
 Проект выполнен в качестве тестового задания по предоставленному [шаблону в Figma](https://www.figma.com/file/pdYzuOkvXY3Q00YRAMsLuz/Calculator-Constructor?node-id=625%3A1493)
 
 Единственное заметное отклонение в ненавязчивом отображении высчитываемого выражения вне поля диспрея калькулятора (иначе показалось не вполне понятным). Для отключения требуется минимальная правка кода и стилей.
