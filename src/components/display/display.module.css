@@ -13,15 +13,27 @@
   user-select: none;
 }
 
+.textProxy,
 .text {
+  position: relative;
   font-family: "Inter";
   font-style: normal;
   font-weight: 800;
   font-size: 36px;
   line-height: 44px;
-  display: flex;
-  align-items: flex-end;
+  max-width: 100%;
+  width: 100%;
+  font-variant-numeric: tabular-nums;
   text-align: right;
   color: #111827;
   user-select: none;
+  overflow: hidden;
+}
+
+.textProxy::before {
+  content: "~";
+  position: absolute;
+  left: 0px;
+  top: -4px;
+  font-size: 28px;
 }

@@ -109,28 +109,21 @@ const PadContainer = (props: {
     borderRadius: "4px",
   };
 
-  return app.mode === "runtime" ? (
+  return (
     <div
-      className={styles.displayContainer}
+      className={
+        app.mode !== "runtime"
+          ? styles.draggableContainer
+          : styles.displayContainer
+      }
+      style={app.mode !== "runtime" && isDragging ? styleDrag : undefined}
+      onDoubleClick={app.mode !== "runtime" ? props.onDblClick : () => {}}
       data-pad={props.pad}
       ref={itemRef}
-      draggable={false}
+      draggable={app.mode !== "runtime"}
     >
       {props.children}
     </div>
-  ) : (
-    <>
-      <div
-        className={styles.draggableContainer}
-        style={isDragging ? styleDrag : undefined}
-        onDoubleClick={props.onDblClick}
-        data-pad={props.pad}
-        ref={itemRef}
-        draggable={true}
-      >
-        {props.children}
-      </div>
-    </>
   );
 };
 
@@ -201,7 +194,10 @@ const Constructor = () => {
   };
 
   return isEmpty ? (
-    <div className={styles.noIndent} ref={dropPadTarget}>
+    <div
+      className={styles.noIndent}
+      ref={app.mode !== "runtime" ? dropPadTarget : undefined}
+    >
       <div
         className={
           (isDisplayOver && canDisplayDrop) || (isPadOver && canPadDrop)
@@ -223,12 +219,12 @@ const Constructor = () => {
       <div
         className={styles.dropzone}
         style={isDisplayOver ? { background: "#F0F9FF" } : undefined}
-        ref={dropDisplayTarget}
+        ref={app.mode !== "runtime" ? dropDisplayTarget : undefined}
       >
         {isDisplay && (
           <DisplayContainer
             key={"display"}
-            onDblClick={handleDisplayRemove}
+            onDblClick={app.mode !== "runtime" ? handleDisplayRemove : () => {}}
             children={<Display mode={mode} />}
           />
         )}
@@ -240,7 +236,7 @@ const Constructor = () => {
       <div
         className={styles.pads}
         style={isPadOver ? { background: "#F0F9FF" } : undefined}
-        ref={dropPadTarget}
+        ref={app.mode !== "runtime" ? dropPadTarget : undefined}
       >
         {constr.pads.map((pad) => {
           return (
@@ -248,21 +244,21 @@ const Constructor = () => {
               key={pad}
               pad={pad}
               onDblClick={
-                pad === "actionpad"
+                pad === "actionpad" && app.mode !== "runtime"
                   ? handleActionPadRemove
-                  : pad === "numpad"
+                  : pad === "numpad" && app.mode !== "runtime"
                   ? handleNumPadRemove
-                  : pad === "sumpad"
+                  : pad === "sumpad" && app.mode !== "runtime"
                   ? handleSumPadRemove
                   : () => {}
               }
               children={
                 pad === "actionpad" ? (
-                  <ActionPad />
+                  <ActionPad mode={"runtime"} />
                 ) : pad === "numpad" ? (
-                  <NumPad />
+                  <NumPad mode={"runtime"} />
                 ) : pad === "sumpad" ? (
-                  <SumPad />
+                  <SumPad mode={"runtime"} />
                 ) : undefined
               }
             />
