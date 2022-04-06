@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/react-calc-constructor/static/css/main.c7da482f.css",
+    "main.js": "/react-calc-constructor/static/js/main.1408ae06.js",
+    "static/js/787.fd2ea213.chunk.js": "/react-calc-constructor/static/js/787.fd2ea213.chunk.js",
+    "static/media/drop.svg": "/react-calc-constructor/static/media/drop.d3adb44ca8baf87da4cf.svg",
+    "static/media/eye.svg": "/react-calc-constructor/static/media/eye.55a32c172996ee6b2d07.svg",
+    "index.html": "/react-calc-constructor/index.html",
+    "static/media/selector.svg": "/react-calc-constructor/static/media/selector.ebc9706e0a647688fc13.svg",
+    "static/media/hr.svg": "/react-calc-constructor/static/media/hr.ef336ec0110f50845112.svg",
+    "main.c7da482f.css.map": "/react-calc-constructor/static/css/main.c7da482f.css.map",
+    "main.1408ae06.js.map": "/react-calc-constructor/static/js/main.1408ae06.js.map",
+    "787.fd2ea213.chunk.js.map": "/react-calc-constructor/static/js/787.fd2ea213.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c7da482f.css",
+    "static/js/main.1408ae06.js"
+  ]
+}
