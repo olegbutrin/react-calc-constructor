@@ -2,7 +2,7 @@
 
 Простой и изящный пример Single Page Application с использованием стека технологий ReactJS
 
-![Иллюстрация к проекту](https://github.com/olegbutrin/react-calc-constructor/tree/stage-1/images/RC.png)
+![Иллюстрация к проекту](https://github.com/olegbutrin/react-calc-constructor/blob/stage-1/images/RC.png)
 
 Проект выполнен в качестве тестового задания по предоставленному [шаблону в Figma](https://www.figma.com/file/pdYzuOkvXY3Q00YRAMsLuz/Calculator-Constructor?node-id=625%3A1493)
 
