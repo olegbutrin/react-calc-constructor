@@ -1,46 +1,38 @@
-# Getting Started with Create React App
+# ПримерноТак Калькулятор
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Простой и изящный пример Single Page Application с использованием стека технологий ReactJS
 
-## Available Scripts
+![Иллюстрация к проекту](https://github.com/olegbutrin/react-calc-constructor/tree/stage-1/images/RC.png)
 
-In the project directory, you can run:
+Проект выполнен в качестве тестового задания по предоставленному [шаблону в Figma](https://www.figma.com/file/pdYzuOkvXY3Q00YRAMsLuz/Calculator-Constructor?node-id=625%3A1493)
 
-### `npm start`
+Единственное заметное отклонение в ненавязчивом отображении высчитываемого выражения вне поля диспрея калькулятора (иначе показалось не вполне понятным). Для отключения требуется минимальная правка кода и стилей.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Почему ПримерноТак?
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Все дело в ограниченном размере дисплея калькулятора. Чтобы сэкономить место, калькулято отображает только два знака после запятой. Если целочисленная часть не помещается в окне дисплея, то та часть, которая не поместилась, отсекатеся и заменяется знаком многоточия. В обоих этих случаях в левой части дисплея отображается знак "~" (тильда).
 
-### `npm test`
+## Как пользоваться калькулятором
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Изначально калькулятор находится в режиме конструктора. Для сборки калькулятора перенесите виджеты из левой части в правую и разместите так, как вам хочется. Дисплей может размещаться только в верхней части конструктора. Для удаления виджетов используется двойной клик.
 
-### `npm run build`
+Для переключения режимов используются кнопки Runtime и Constructor.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Вычисления доступны только в режиме Runtime. Для обнуления вычислений используется неочевидное, но досупное решение: двойной клик на дисплее.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Используемые технологии и запуск
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Этот проект был создан с использованием [Create React App](https://github.com/facebook/create-react-app).
 
-### `npm run eject`
+### Что внутри
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
++ ReactJS 18
++ Typescript
++ Redux/Redux Thunk
++ React DnD
++ Eslint
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Для запуска используйте стандартные команды CRA
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Внимание!**
+На React 18 возможна ошибка сборки, связанная с React DND. Для исправления понадобится изменить конфигурацию Webpack для CRA, добавив две строки в alias. Смотрите webpack.config.fix.txt
