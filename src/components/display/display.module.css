@@ -1,0 +1,58 @@
+.displayActive,
+.display {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 4px 8px;
+  min-width: var(--widget-width);
+  max-width: var(--widget-width);
+  height: 52px;
+  background: #f3f4f6;
+  border-radius: 6px;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.displayActive::after { 
+  content: attr(data-title);
+  display:flex;
+  flex-direction:row;
+  align-items: flex-end;
+  justify-content: center;
+  position: absolute;
+  float: inline-end;
+  top: -22px;
+  right: 6px;
+  height: 20px;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: right;
+  text-overflow: clip;
+  color: lightgray;
+ }
+
+.textProxy,
+.text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 44px;
+  max-width: 100%;
+  width: 100%;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  color: #111827;
+  user-select: none;
+  overflow: hidden;
+}
+
+.textProxy::before {
+  content: "~";
+  position: absolute;
+  left: 4px;
+  top: 0px;
+  font-size: 28px;
+}

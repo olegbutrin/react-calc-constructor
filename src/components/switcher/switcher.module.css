@@ -1,0 +1,43 @@
+.switcher {
+  display: flex;
+  flex-direction: row;
+  padding: 1px;
+  height: 38px;
+  background: #f3f4f6;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.inactivebutton,
+.activebutton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0px 12px;
+  height: 36px;
+  margin: 0px 0px;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.activebutton {
+  background: #ffffff;
+  border: 1px solid #e2e3e5;
+}
+
+.inactivebutton {
+  border: 1px solid transparent;
+}
+
+.text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 15px;
+  color: #4d5562;
+  flex-grow: 0;
+}

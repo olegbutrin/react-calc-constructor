@@ -1,0 +1,4 @@
+module.exports alias:
+
+'react/jsx-dev-runtime.js': path.resolve('node_modules', 'react', 'jsx-dev-runtime.js'),
+'react/jsx-runtime.js': path.resolve('node_modules', 'react', 'jsx-runtime.js'),

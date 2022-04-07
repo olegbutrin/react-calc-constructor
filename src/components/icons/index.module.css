@@ -1,0 +1,38 @@
+.eyeEnabled {
+  background-image: url("../../svg/enabled/eye.svg");
+}
+
+.eyeDisabled {
+  background-image: url("../../svg/disabled/eye.svg");
+}
+
+.selectorEnabled {
+  background-image: url("../../svg/enabled/selector.svg");
+}
+
+.selectorDisabled {
+  background-image: url("../../svg/disabled/selector.svg");
+}
+
+.drop {
+  background-image: url("../../svg/drop.svg");
+}
+
+.eyeEnabled,
+.eyeDisabled,
+.selectorEnabled,
+.selectorDisabled,
+.drop {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  flex-grow: 0;
+  margin: 0px 8px 0px 0px;
+  background-clip: content-box;
+  background-repeat: no-repeat;
+}
+
+.drop {
+  width: 22px;
+  height: 22px;
+}

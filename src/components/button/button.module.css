@@ -1,0 +1,26 @@
+.button {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-height: var(--widget-height);
+  min-height: var(--widget-height);
+  background: #ffffff;
+  border: 1px solid #e2e3e5;
+  box-sizing: border-box;
+  border-radius: 6px;
+  user-select: none;
+}
+
+.label {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 15px;
+  text-align: center;
+  vertical-align: text-bottom;
+  color: #000000;
+  user-select: none;
+}
